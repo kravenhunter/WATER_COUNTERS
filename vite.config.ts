@@ -1,20 +1,20 @@
 import react from '@vitejs/plugin-react';
-import autoprefixer from 'autoprefixer';
+// import autoprefixer from 'autoprefixer';
 import * as path from 'path';
 import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  css: {
-    postcss: {
-      plugins: [
-        autoprefixer({
-          overrideBrowserslist: ['cover 99.5%', 'not IE < 9'],
-        }),
-      ],
-    },
-  },
+  // css: {
+  //   postcss: {
+  //     plugins: [
+  //       autoprefixer({
+  //         overrideBrowserslist: ['cover 99.5%', 'not IE < 9'],
+  //       }),
+  //     ],
+  //   },
+  // },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src/'),
