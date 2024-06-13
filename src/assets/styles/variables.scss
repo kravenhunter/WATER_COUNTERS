@@ -1,0 +1,37 @@
+:root {
+  //Variables
+
+  --color-light: #ffffff;
+  --color-light-hover: #e2e6ea;
+
+  --color-darkGrey: #f0f3f7;
+  --color-ligth-darkGrey: #f7f8f9;
+
+  --color-dark: #000000;
+  --color-darkLight-hover: #404040;
+  --color-violet: #3e3683;
+  --color-green: #4ade80;
+  --color-darkGreen: #016116;
+  --color-violetLight: #5d53b9;
+  --color-darkBlue: #516eaa;
+  --color-darkBlue-hover: #435c8c;
+  --color-azule: #29c5f6;
+  --color-red: #e14f42;
+  --color-orange: #febe2b;
+  --color-link: #646cff;
+  --color-link-hover: #535bf2;
+
+  //Global Color Settings
+  color-scheme: light;
+  color: rgba(10, 10, 10, 0.87);
+  background-color: var(--color-light);
+  //Font
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}

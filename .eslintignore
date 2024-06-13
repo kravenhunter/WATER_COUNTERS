@@ -1,0 +1,16 @@
+# Commin
+node_modules
+.output
+.nuxt
+.nitro
+coverage
+lib/templates
+dist
+
+*.css
+*.bat
+*.json
+.prettierignore
+README.md
+README.temp
+.eslintrc.cjs

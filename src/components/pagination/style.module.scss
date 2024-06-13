@@ -1,0 +1,27 @@
+.wrapper__pagination {
+  display: flex;
+  justify-content: end;
+  padding: 8px 16px;
+  &__block {
+    display: flex;
+    column-gap: 0.8rem;
+    justify-content: end;
+    list-style: none;
+    & li {
+      cursor: pointer;
+      border: 1px solid #ced5de;
+      border-radius: 6px;
+      padding: 8px 12px;
+      width: 32px;
+      height: 32px;
+      &.active__page {
+        cursor: none;
+        background: #f2f5f8;
+      }
+    }
+  }
+}
+
+.hide {
+  opacity: 0;
+}
