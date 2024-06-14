@@ -20,25 +20,18 @@ export const MeterItem = observer(({ number, meter, id }: IProps) => {
 
   return (
     <tr
-      key={meter.id}
       id={id}
       onMouseEnter={() => setBasketVisabily(true)}
       onMouseLeave={() => setBasketVisabily(false)}>
-      <td className={style['meters__table__number']}>{++number}</td>
-      <td className={style['meters__table__type']}>
+      <td>{++number}</td>
+      <td>
         <IconSwitcher type={meter._type[0]} />
       </td>
-      <td className={style['meters__table__date']}>
-        {meter.installation_date}
-      </td>
-      <td className={style['meters__table__is_automatic']}>
-        {meter.is_automatic ? 'да' : 'нет'}
-      </td>
-      <td className={style['meters__table__current_data']}>
-        {meter.initial_values[0]}
-      </td>
-      <td className={style['meters__table__adress']}>{meter.adress}</td>
-      <td className={style['meters__table__notuce']}>
+      <td>{meter.installation_date}</td>
+      <td> {meter.is_automatic ? 'да' : 'нет'}</td>
+      <td>{meter.initial_values[0]}</td>
+      <td>{meter.adress}</td>
+      <td>
         <span> {meter.description}</span>
         <span
           onClick={deleteHandler}

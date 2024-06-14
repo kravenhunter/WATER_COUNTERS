@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   IAreaDTO,
   IMetterDTO,
@@ -46,9 +44,11 @@ export class ApiServices {
         previous: previosLink ? parseInt(previosLink) : null,
         results: converted,
       };
-    } catch (err: any) {
-      if (err.response) {
-        throw err.response.data;
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        if (err.response) {
+          throw err.response.data;
+        }
       }
       throw err;
     }
@@ -68,9 +68,11 @@ export class ApiServices {
         previous: dataResult.previous,
         results: converted,
       };
-    } catch (err: any) {
-      if (err.response) {
-        throw err.response.data;
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        if (err.response) {
+          throw err.response.data;
+        }
       }
       throw err;
     }
@@ -90,9 +92,11 @@ export class ApiServices {
         previous: previosLink ? parseInt(previosLink) : null,
         results: converted,
       };
-    } catch (err: any) {
-      if (err.response) {
-        throw err.response.data;
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        if (err.response) {
+          throw err.response.data;
+        }
       }
       throw err;
     }
