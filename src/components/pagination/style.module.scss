@@ -8,6 +8,8 @@
     justify-content: end;
     list-style: none;
     & li {
+      display: grid;
+      place-content: center;
       cursor: pointer;
       border: 1px solid #ced5de;
       border-radius: 6px;

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
 import { Li } from './li';
 import style from './style.module.scss';
@@ -28,9 +30,9 @@ export const Pagination = React.memo(
     };
     useEffect(() => {
       setPagination({
-        current: currentPage < totalCount ? currentPage : totalCount,
-        previos: currentPage - 1 > 0 ? currentPage - 1 : 0,
-        next: currentPage + 1 < totalCount ? currentPage + 1 : totalCount,
+        current: currentPage,
+        previos: currentPage - 1,
+        next: currentPage + 1,
       });
     }, [currentPage, totalCount]);
 
@@ -39,53 +41,58 @@ export const Pagination = React.memo(
         <ul
           className={style['wrapper__pagination__block']}
           onClick={(event) => handler(event.target)}>
-          {pagination.previos - 1 > 1 && <Li text='&#8810;' />}
-          {pagination.previos - 1 > 2 && <Li text='...' />}
-          {pagination.previos - 1 > 0 && (
-            <Li text={`${pagination.previos - 1}`} />
-          )}
-          {pagination.previos > 0 && <Li text={`${pagination.previos}`} />}
-          <Li
-            classField={style['active__page']}
-            text={`${pagination.current}`}
-          />
-
-          {pagination.next < totalCount - 2 &&
-          pagination.next < totalCount - 1 ? (
+          {/* Показываем нумерацию 1,2,3 пока current  < 3 , когда превысил значение показываем динамическую нумерацию  */}
+          {pagination.current < 3 ? (
             <>
-              <Li text={`${pagination.next}`} />
-              {pagination.next < totalCount - 3 && <Li text='...' />}
-              <Li text={`${totalCount - 2}`} />
-              <Li text={`${totalCount - 1}`} />
-              <Li text={`${totalCount}`} />
+              {/* СТатичная нумерация */}
+              <Li
+                classField={cn(
+                  pagination.current === 1 && style['active__page']
+                )}
+                text='1'
+              />
+              <Li
+                classField={cn(
+                  pagination.current === 2 && style['active__page']
+                )}
+                text='2'
+              />
+              <Li
+                classField={cn(
+                  pagination.current === 3 && style['active__page']
+                )}
+                text='3'
+              />
             </>
           ) : (
-            pagination.current !== totalCount && (
-              <>
-                {pagination.next < totalCount ? (
-                  <>
-                    <Li text={`${pagination.next}`} />
-                    <Li text={`${totalCount}`} />
-                  </>
-                ) : (
-                  <Li text={`${totalCount}`} />
-                )}
-              </>
-            )
-          )}
+            <>
+              {/* Динамическая  нумерация */}
+              {/* Показываем стрелку */}
+              <Li text='&#8810;' />
+              {/* Показываем пропуск */}
+              <Li text='...' />
 
-          {/* 
-             {pagination.next < totalCount && <Li text={`${pagination.next}`} />}
+              <Li text={`${pagination.previos}`} />
+              <Li
+                classField={style['active__page']}
+                text={`${pagination.current}`}
+              />
+              {pagination.next <= totalCount && (
+                <Li text={`${pagination.next}`} />
+              )}
+            </>
+          )}
+          {/* Показываем пропуск между нумерациями если разделение большое */}
           {pagination.next < totalCount - 3 && <Li text='...' />}
 
-          {pagination.next + 1 < totalCount - 2 && (
+          {/* СТатичная нумерация */}
+          {pagination.next < totalCount - 2 && (
             <Li text={`${totalCount - 2}`} />
           )}
-
-          {pagination.next + 1 < totalCount - 1 && (
+          {pagination.next < totalCount - 1 && (
             <Li text={`${totalCount - 1}`} />
           )}
-          {pagination.next + 1 < totalCount && <Li text={`${totalCount}`} />} */}
+          {pagination.next < totalCount && <Li text={`${totalCount}`} />}
         </ul>
       </div>
     );
