@@ -1,6 +1,22 @@
-import { ColdWaterIcon, EnergyIcon, FireIcon, HotWater } from '@components';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  BasketIcon,
+  ColdWaterIcon,
+  EnergyIcon,
+  FireIcon,
+  HotWater,
+} from '@components';
 
-export const checkMetterType = (type: string) => {
+type SelectType =
+  | 'ColdWaterAreaMeter'
+  | 'HotWaterAreaMeter'
+  | 'WarmAreaMeter'
+  | 'EnergyAreaMeter'
+  | 'Basket';
+interface IProps {
+  type: string;
+}
+export const IconSwitcher = ({ type }: IProps) => {
   switch (type) {
     case 'ColdWaterAreaMeter':
       return (
@@ -27,6 +43,8 @@ export const checkMetterType = (type: string) => {
           <EnergyIcon /> ЭЛДТ
         </span>
       );
+    case 'Basket':
+      return <BasketIcon />;
 
     default:
       return <span>Нет данных</span>;

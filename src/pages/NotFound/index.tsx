@@ -7,7 +7,7 @@ export const Page404 = () => {
       <h1>Страница ненайдена</h1>
       <Link
         to={'/'}
-        className='w-[120px] bg-teal-600 rounded-md px-4 py-3 text-white hover:bg-teal-500'>
+        className='w-[120px] bg-teal-600 text-center rounded-md p-4 text-white hover:bg-teal-500'>
         На главную
       </Link>
     </div>

@@ -18,18 +18,7 @@ html,
 body {
   margin: 0;
 }
-.body {
-  // display: flex;
-  // place-items: center;
-  width: clamp(320px, 100vw, 100vw);
-  // min-width: 320px;
-  // min-height: 100vh;
-  height: 100vh;
-}
-#root {
-  width: inherit;
-  min-height: inherit;
-}
+
 p,
 a {
   font-size: 1.6rem;
@@ -38,24 +27,6 @@ h1 {
   font-size: 2.4rem;
   line-height: 1.1;
   font-weight: 500;
-}
-
-button {
-  cursor: pointer;
-
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-#root {
-  display: grid;
-  place-content: center;
-  height: 100vh;
 }
 
 /* Стили для скролла */
@@ -67,4 +38,11 @@ button:focus-visible {
 }
 ::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#root {
+  width: clamp(320px, 100vw, 100vw);
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
 }

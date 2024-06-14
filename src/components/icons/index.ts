@@ -3,3 +3,4 @@ export * from './ColdWaterIcon';
 export * from './EnergyIcon';
 export * from './FireIcon';
 export * from './HotWater';
+export * from './IconSwitcher';

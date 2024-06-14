@@ -1,6 +1,6 @@
 import { useStore } from '@/store/hooks';
-import { BasketIcon } from '@components';
-import { IMeter, checkMetterType } from '@modules';
+import { IconSwitcher } from '@components';
+import { IMeter } from '@modules';
 import cn from 'classnames';
 import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
@@ -24,7 +24,9 @@ export const MeterItem = observer(({ number, meter, id }: IProps) => {
       onMouseEnter={() => setBasketVisabily(true)}
       onMouseLeave={() => setBasketVisabily(false)}>
       <td>{++number}</td>
-      <td>{checkMetterType(meter._type[0])}</td>
+      <td>
+        <IconSwitcher type={meter._type[0]} />
+      </td>
       <td>{meter.installation_date}</td>
       <td> {meter.is_automatic ? 'да' : 'нет'}</td>
       <td>{meter.initial_values[0]}</td>
@@ -34,7 +36,7 @@ export const MeterItem = observer(({ number, meter, id }: IProps) => {
         <span
           onClick={deleteHandler}
           className={cn(!isBasketVisible && style['hide'])}>
-          <BasketIcon />
+          <IconSwitcher type='Basket' />
         </span>
       </td>
     </tr>

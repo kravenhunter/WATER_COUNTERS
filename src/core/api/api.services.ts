@@ -1,8 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IAreaDTO, IMetterDTO, IResponse } from '@/core';
+import {
+  IAreaDTO,
+  IMetterDTO,
+  IResponse,
+  convertAreasData,
+  convertMetersData,
+} from '@/core';
 import { IArea, IMeter } from '@/modules';
-import { convertAreasData, convertMetersData } from '@/modules/Meters/utils';
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export const config: AxiosRequestConfig = {
